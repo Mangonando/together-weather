@@ -2,9 +2,9 @@
 import Foundation
 
 struct WeatherData: Codable {
-    let name: String
     let weather: [Weather]
     let main: Main
+    let name: String
     
     struct Weather: Codable {
         let description: String
