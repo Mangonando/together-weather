@@ -4,7 +4,7 @@ import Foundation
 class WeatherViewModel: ObservableObject {
     @Published var weatherData: WeatherData?
     
-    private let apiKey = "fe0e7506cb6f7cf9757ce482f344acd5"
+    private let apiKey = "381d05859658f31ed63e13e5da45cbef"
     private let baseUrl = "https://api.openweathermap.org/data/2.5/weather"
     
     func getWeatherData(lat: Double, lon: Double) {
@@ -13,9 +13,11 @@ class WeatherViewModel: ObservableObject {
             return
         }
         
+        print("Fetching weather from: \(url.absoluteString)")
+        
         URLSession.shared.dataTask(with: url) {
             data, response, error in
-            if let error = error {
+            if error != nil {
                 print("Error fetching weather API")
                 return
             }
