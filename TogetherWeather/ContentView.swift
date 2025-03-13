@@ -16,6 +16,9 @@ struct ContentView: View {
                 Text("Fetching weather API")
             }
         }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black)
         .onAppear {
             viewModel.getWeatherData(lat: 52.52, lon: 13.405)
         }
@@ -24,6 +27,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
