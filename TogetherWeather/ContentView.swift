@@ -2,9 +2,18 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = WeatherViewModel()
+    @State private var cityName: String = ""
     
     var body: some View {
         VStack(spacing: 10) {
+            HStack {
+                TextField("Enter city name", text: $cityName)
+                Button(action: {
+                    viewModel.getWeatherData(city: cityName)
+                }) {
+                    Text("Search")
+                }
+            }
             if let weather = viewModel.weatherData {
                 Text("\(weather.name), \(weather.sys.country)")
                 Text("\(weather.main.temp)")
@@ -12,15 +21,13 @@ struct ContentView: View {
                 Text("\(weather.main.temp_min)")
                 Text("\(weather.main.temp_max)")
                 Text("\(weather.weather[0].main)")
-            } else {
-                Text("Fetching weather API")
             }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)
-        .onAppear {
-            viewModel.getWeatherData(lat: 52.52, lon: 13.405)
+        .onAppear{
+            viewModel.getWeatherData(city: "Berlin")
         }
     }
 }
