@@ -17,6 +17,19 @@ struct WeatherData: Codable {
         let feels_like: Double
         let temp_min: Double
         let temp_max: Double
+        
+        var roundedTemp: Int {
+            Int(temp.rounded())
+        }
+        var roundedFeelsLike: Int {
+            Int(feels_like.rounded())
+        }
+        var roundedTempMin: Int {
+            Int(temp_min.rounded())
+        }
+        var roundedTempMax: Int {
+            Int(temp_max.rounded())
+        }
     }
     
     struct Sys: Codable {

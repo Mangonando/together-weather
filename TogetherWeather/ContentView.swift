@@ -16,10 +16,10 @@ struct ContentView: View {
             }
             if let weather = viewModel.weatherData {
                 Text("\(weather.name), \(weather.sys.country)")
-                Text("\(weather.main.temp)")
-                Text("\(weather.main.feels_like)")
-                Text("\(weather.main.temp_min)")
-                Text("\(weather.main.temp_max)")
+                Text("\(weather.main.roundedTemp) °c")
+                Text("\(weather.main.roundedFeelsLike) °c")
+                Text("\(weather.main.roundedTempMin) °c")
+                Text("\(weather.main.roundedTempMax) °c")
                 Text("\(weather.weather[0].main)")
             }
         }
