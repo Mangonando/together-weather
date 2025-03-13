@@ -15,12 +15,12 @@ struct ContentView: View {
                 }
             }
             if let weather = viewModel.weatherData {
-                Text("\(weather.name), \(weather.sys.country)")
-                Text("\(weather.main.roundedTemp) °c")
-                Text("\(weather.main.roundedFeelsLike) °c")
-                Text("\(weather.main.roundedTempMin) °c")
-                Text("\(weather.main.roundedTempMax) °c")
-                Text("\(weather.weather[0].main)")
+                Text("\(weather.name), \(weather.sys.country)").font(.largeTitle).bold()
+                Text("\(weather.main.roundedTemp) °c").font(.title)
+                Text("\(weather.main.roundedFeelsLike) °c").font(.title3)
+                Text("\(weather.main.roundedTempMin) °c").font(.title3)
+                Text("\(weather.main.roundedTempMax) °c").font(.title3)
+                Text("\(weather.weather[0].main)").font(.title2)
             }
         }
         .padding()
